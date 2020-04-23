@@ -1,4 +1,5 @@
 const uploadBtn = document.getElementById('uploadBtn');
+const imgContainer = document.getElementById('img-container')
 const customBtn = document.getElementById('custom-upload-btn');
 const uploadValue = document.querySelector('.upload-value');
 const submitBtn = document.getElementById('submit-btn');
@@ -28,6 +29,7 @@ uploadBtn.addEventListener('change', ({ target }) => {
     customBtn.innerHTML = loadingComp
     let value = target.value.split("\\");
     let filename = value[2];
+    if (!filename) return false;
     console.log(filename)
     let imgFile = target.files
     uploadValue.style.opacity = 1
@@ -40,6 +42,7 @@ uploadBtn.addEventListener('change', ({ target }) => {
 async function uploadImage(file) {
     const formData = new FormData()
     formData.append('image', file[0])
+    console.log(file[0])
     try {
         const res = await fetch(`http://localhost:4000/upload`, {
             method: 'POST',
@@ -49,8 +52,11 @@ async function uploadImage(file) {
             alert.classList.add('show');
             customBtn.innerHTML = uploadComp
             setTimeout(() => {
+                imgContainer.innerHTML = `<img src="img/uploaded.${file[0].name.split('.')[1]}" alt="" width="300">`
+
+            }, 500)
+            setTimeout(() => {
                 alert.classList.remove('show');
-                window.location.reload()
             }, 3000)
         }
 
