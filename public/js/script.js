@@ -50,6 +50,7 @@ async function uploadImage(file) {
             customBtn.innerHTML = uploadComp
             setTimeout(() => {
                 alert.classList.remove('show');
+                window.location.reload()
             }, 3000)
         }
 

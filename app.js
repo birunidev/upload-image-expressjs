@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
-
+const fs = require('fs');
 const multer = require("multer");
 
 
@@ -18,7 +18,7 @@ let storage = multer.diskStorage({
         cb(null, './upload')
     },
     filename: (req, file, cb) => {
-        console.log(file)
+        // console.log(file)
         cb(null, file.originalname);
     }
 })
@@ -29,7 +29,13 @@ app.post('/upload', (req, res) => {
 
     upload(req, res, err => {
         if (err) res.json({ message: `Error Uploading Files` })
-        res.json({ message: 'Image upload success' })
+        console.log(req.file.filename)
+        res.json({ message: "Image has been uploaded succesfully" })
+        fs.copyFile(`./upload/${req.file.filename}`, `./public/img/uploaded.${req.file.filename.split('.')[1] === 'jpg' ? 'jpg' : 'png'}`, (err) => {
+            if (err) console.log(err)
+            console.log('copied success')
+
+        })
     })
 
 })

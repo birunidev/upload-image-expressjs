@@ -109,20 +109,12 @@
 body {
   margin: 0;
   height: 80vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   font-family: 'Poppins';
   color: #2F2E41;
 }
 
 .container {
+  margin-top: 6em;
   text-align: center;
 }
 
@@ -161,10 +153,6 @@ body {
           transform: translateY(0px);
 }
 
-.container .image-button i {
-  margin-right: 10px;
-}
-
 .container .image-button label {
   margin: 0;
   font-weight: 600;
@@ -181,6 +169,7 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 30px;
+  margin-right: 10px;
 }
 
 .container .upload-value {
@@ -224,7 +213,13 @@ body {
 }
 
 .alert.show {
+  width: 400px;
+  margin: 2em auto;
   display: block;
   opacity: 1;
+}
+
+img {
+  margin-top: 3em;
 }
 /*# sourceMappingURL=main.css.map */

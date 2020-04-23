@@ -4,14 +4,15 @@
 body {
     margin: 0;
     height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     font-family: 'Poppins';
     color: #2F2E41;
 }   
 
 .container {
+    margin-top: 6em;
     text-align: center;
 
     input[type=file] {
@@ -94,6 +95,12 @@ body {
     }
 }
 .alert.show {
+    
+    width: 400px;
+    margin: 2em auto;
     display: block;
     opacity: 1;
+}
+img {
+    margin-top: 3em;
 }
